@@ -1,56 +1,52 @@
 import React from  'react';
-import Form, { FormGroup, FormLabel, FormText } from 'react-bootstrap';
+import {Form, FormGroup} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import axios from 'axios';
 
 class Cityform extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      city: '',
-      cityData: '',
+      cityData: [],
       error: false,
-      errorMessage: ''
+      errorMessage: '',
+      lat: '',
+      lon: '',
     };
   };
-  
-handleCityInput = (e) => {
-// get data from API
-
-// save data into state
-this.setState({
-  city: e.target.value
-});
-}
-handleSubmit = async (e) => {
+handleCityCall = async (e) => {
   e.preventDefault();
 try{
-  let cityData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`);
+  let cityData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.searchQuery}&format=json`);
+  console.log(cityData.data[0].lat);
 this.setState({
   cityData: cityData.data
 });
+console.log(this.state.cityData);
 } catch (error) {
   console.log('error', error.response);
   this.setState({
-    eroor: true,
+    error: true,
     errorMessage: `An error has been caught: ${error.response.status}`
-  })
+  });
 }
+
 }
 
   render(){
-    let cityDataValues = this.state.city.map((acc, key) => {
-      return <li key={key}>{acc}</li>
-    })
+ console.log(this.state.searchQuery)
+ let cityResults = this.state.cityData.map((a,b) => <li key={b}><b>{a.display_name}</b> {a.lat}, {a.lon}</li>)
   return (
     <>
+    <Form>
     <FormGroup>
-      <FormLabel>Pick a City:</FormLabel>
-      <FormText 
-      onChange={this.handleCityInput}/>
-      <Form.Button onSubmit={this.handleSubmit}>Get City Data</Form.Button>
+      <Form.Label>Pick a City:</Form.Label>
+      <Form.Control type="text" onChange={(e) => this.setState({ searchQuery: e.target.value })} placeholder="search for a city"/>
+      <Button onClick={this.handleCityCall}>Explore</Button>
     </FormGroup>
+    </Form>
        <ul>
-        <li>{cityDataValues}</li>
+        {cityResults[0]}
        </ul>
     </>
   );
