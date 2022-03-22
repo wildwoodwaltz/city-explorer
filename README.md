@@ -74,7 +74,7 @@ Actual time needed to complete: 2hr 30 min
 
 ---
 
-Name of feature: REfactor into components
+Name of feature: Refactor into components
 
 Estimate of time needed to complete: 1 hour
 
