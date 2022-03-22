@@ -40,7 +40,7 @@ class App extends React.Component {
     this.setState({
       error: true,
       showModal: true,
-      errorMessage: `An error has been caught: ${error.response.status}`
+      errorMessage: `An error has been caught: ${error.response.status} ${error.response.statusText}`
     });
     console.log(this.state.errorMessage);
   }
