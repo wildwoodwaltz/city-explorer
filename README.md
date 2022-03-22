@@ -1,7 +1,7 @@
 # Project Name
 
-**Author**: Tyler Egashira 
-**Version**: 1.0.0 
+**Author**: Tyler Egashira + Dwight Lidquist
+**Version**: 1.0.0
 
 ## Overview
 
@@ -23,7 +23,13 @@ WRRC Functions:
 
 ## Change Log
  
- V.1.0.0 - Search bar functionality and map population. 
+ V.1.0.0 - Search bar functionality and map population. Error handling. 
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+Thanks to Chris (last name unknown) for reviewing code and helping act as a sounding board.
+
+Dwight Linquist for being my programming partner for this.
+
+[https://locationiq.com/](Location IQ for API Key and population)
+[https://react-bootstrap.github.io/](Bootstrap for React)
