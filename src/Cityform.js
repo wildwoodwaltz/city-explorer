@@ -8,7 +8,7 @@ class Cityform extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      searchQuery:'',
+      searchQuery:'Seattle',
     };
   };
   searchCity = () => {

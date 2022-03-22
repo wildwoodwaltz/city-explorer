@@ -5,6 +5,7 @@ import Cityform from './Cityform';
 import Results from './Results';
 import Header from './Header';
 import axios from 'axios';
+import Errormodal from './Errormodal';
 
 class App extends React.Component {
   constructor(props){
@@ -13,9 +14,20 @@ class App extends React.Component {
       cityData: [],
       mapurl: '',
       error: false,
+      errorMessage:'',
+      showModal: false,
     };
   };
-
+  hideModal= () => {
+    this.setState({
+      showModal: false,
+    })
+  }
+  showModal = () => {
+    this.setState({
+      showModal: true,
+    })
+  }
   handleCityCall = async (city) => {
    try{
     let cityData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${city}&format=json`);
@@ -27,8 +39,10 @@ class App extends React.Component {
     console.log('error', error.response);
     this.setState({
       error: true,
-      errorMessage: `An error has been caught: ${error.response.status}`
+      showModal: true,
+      errorMessage: `An error has been caught: ${error.response.status} ${error.response.statusText}`
     });
+    console.log(this.state.errorMessage);
   }
   }
   render(){
@@ -51,6 +65,13 @@ class App extends React.Component {
     <main>
     {cityResults}
     </main>
+    <Errormodal
+    error={this.state.error}
+    errorMessage={this.state.errorMessage}
+    modalState={this.state.showModal}
+    showModal={this.showModal}
+    hideModal={this.hideModal}
+    />
         </>
   );
 }
