@@ -11,15 +11,15 @@ class Cityform extends React.Component {
       searchQuery:'',
     };
   };
-  searchCity = () => {this.props.handleCityCall(this.state.searchQuery);}
+  searchCity = () => {
+    this.props.handleCityCall(this.state.searchQuery);}
 render(){
-console.log(this.state.searchQuery)
   return (
     <>
     <Form className="search">
     <FormGroup>
       <Form.Label>Pick a City:</Form.Label>
-      <Form.Control type="text" onChange={(e) => this.setState({searchQuery: e.target.value})} placeholder="search for a city"/>
+      <Form.Control type="text" onChange={(e) => this.setState({searchQuery: e.target.value})} placeholder="search for a city" />
       <Button onClick={this.searchCity}>Explore!</Button>
     </FormGroup>
     </Form>       

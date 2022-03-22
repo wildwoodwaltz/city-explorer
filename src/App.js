@@ -37,9 +37,7 @@ class App extends React.Component {
       return(
       <Results
       key={index}
-      display = {city.display_name}
-      lat= {city.lat}
-      lon={city.lon}
+      city={city}
       />
       );
     }
@@ -50,7 +48,9 @@ class App extends React.Component {
     <Cityform
     handleCityCall={this.handleCityCall}
     />
+    <main>
     {cityResults}
+    </main>
         </>
   );
 }

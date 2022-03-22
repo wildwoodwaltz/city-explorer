@@ -1,16 +1,20 @@
 .card {
-  width: 20vw;
-  height: 70vh;
+  width: 15vw;
+  height: 50vh;
   margin: .3vw;
   border-radius: 1vw;
+  margin-left: auto;
+  margin-right: auto;
   
 }
 .card-img {
-  width: 19vw;
-  height: 19vw;
-  margin-left: auto;
-  margin-right: auto;
+  width: 15vw;
+  height: 15vw;
+  margin: 0 auto 0 auto;
   border-radius: 1vw;
+}
+.card-title {
+  overflow: auto;
 }
 .card-body {
   font-size: 1em;
