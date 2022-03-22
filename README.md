@@ -13,6 +13,10 @@ This product should allow a person to search for a city and then get a map of sa
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 ![WRRC](./public/assets/WRRC.png)
+[https://locationiq.com/](Location IQ for API Key and population)
+[https://react-bootstrap.github.io/](Bootstrap for React)
+
+
 
 WRRC Functions:
 
@@ -31,5 +35,51 @@ Thanks to Chris (last name unknown) for reviewing code and helping act as a soun
 
 Dwight Linquist for being my programming partner for this.
 
-[https://locationiq.com/](Location IQ for API Key and population)
-[https://react-bootstrap.github.io/](Bootstrap for React)
+
+## Time
+
+Name of feature: Create Search function
+
+Estimate of time needed to complete: 30min
+
+Start time: 1:40
+
+Finish time: 2:30
+
+Actual time needed to complete: 50min
+
+---
+
+Name of feature: link Search function to use API to populate Data
+
+Estimate of time needed to complete: 1hr
+
+Start time: 2:30pm
+
+Finish time: 3:50pm
+
+Actual time needed to complete: 1hr 20min
+
+---
+
+Name of feature: populate map data
+
+Estimate of time needed to complete: 30min
+
+Start time: 3:50pm
+
+Finish time: 6:20pm
+
+Actual time needed to complete: 2hr 30 min
+
+---
+
+Name of feature: REfactor into components
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 6:20pm
+
+Finish time: 10:00pm
+
+Actual time needed to complete: 3hr 40min
