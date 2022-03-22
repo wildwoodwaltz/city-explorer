@@ -1,7 +1,10 @@
 import React from  'react';
 import {Form, FormGroup} from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import axios from 'axios';
+import './Cityform.css'
+
 
 class Cityform extends React.Component {
   constructor(props){
@@ -12,6 +15,7 @@ class Cityform extends React.Component {
       errorMessage: '',
       lat: '',
       lon: '',
+      mapurl:'',
     };
   };
 handleCityCall = async (e) => {
@@ -30,24 +34,47 @@ console.log(this.state.cityData);
     errorMessage: `An error has been caught: ${error.response.status}`
   });
 }
-
+}
+handleGetMap = async (e) => {
+  e.preventDefault();
+  try{
+    let check = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData[0].lat},${this.state.cityData[0].lon}&zoom=14`
+    console.log(check)
+  this.setState({
+    mapurl: check
+  })
+  } catch (error) {
+  console.log('error', error.response);
+  this.setState({
+    error: true,
+    errorMessage: `An error has been caught: ${error.response.status}`
+  });
+  }
 }
 
-  render(){
- console.log(this.state.searchQuery)
- let cityResults = this.state.cityData.map((a,b) => <li key={b}><b>{a.display_name}</b> {a.lat}, {a.lon}</li>)
+render(){
+ let cityResults = this.state.cityData.map((a,b) => 
+ <Card key={b}>
+   <Card.Img variant="top" src={this.state.mapurl}/>
+   <Card.Title>{a.display_name}</Card.Title> 
+   <Card.Body>
+   <Card.Text>{a.lat}</Card.Text>
+   <Card.Text>{a.lon}</Card.Text>
+   </Card.Body>
+   <Button className="mapbutton" onClick={this.handleGetMap}>Get Map</Button>
+   </Card>)
   return (
     <>
     <Form>
     <FormGroup>
       <Form.Label>Pick a City:</Form.Label>
       <Form.Control type="text" onChange={(e) => this.setState({ searchQuery: e.target.value })} placeholder="search for a city"/>
-      <Button onClick={this.handleCityCall}>Explore</Button>
+      <Button onClick={this.handleCityCall}>Explore!</Button>
     </FormGroup>
     </Form>
-       <ul>
+       
         {cityResults[0]}
-       </ul>
+ 
     </>
   );
 }
