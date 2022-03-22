@@ -1,0 +1,8 @@
+.mapbutton {
+  cursor: pointer;
+  background-color: cadetblue;
+}
+
+.mapbutton:active {
+  background-color: rgb(65, 107, 109);
+}
