@@ -1,0 +1,18 @@
+.card {
+  width: 20vw;
+  height: 70vh;
+  margin: .3vw;
+  border-radius: 1vw;
+  
+}
+.card-img {
+  width: 19vw;
+  height: 19vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1vw;
+}
+.card-body {
+  font-size: 1em;
+  overflow: auto;
+}
