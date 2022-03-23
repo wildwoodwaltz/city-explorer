@@ -13,6 +13,7 @@ class Cityform extends React.Component {
   };
   searchCity = () => {
     this.props.handleCityCall(this.state.searchQuery);}
+
 render(){
   return (
     <>
