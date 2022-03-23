@@ -42,15 +42,15 @@ class App extends React.Component {
       this.setState({
         cityData: cityData.data
       });
-      console.log(this.state.cityData);
+      // console.log(this.state.cityData);
     } catch (error) {
-      console.log('error', error.response);
+      // console.log('error', error.response);
       this.setState({
         error: true,
         showModal: true,
         errorMessage: `An error has been caught: ${error.response.status} ${error.response.statusText}`
       });
-      console.log(this.state.errorMessage);
+      // console.log(this.state.errorMessage);
     }
   }
   getWeather = async (city) => {
@@ -63,14 +63,14 @@ class App extends React.Component {
       this.setState({
         weatherModal: true,
       })
-      console.log(weatherData)
+      // console.log(weatherData)
     } catch (error) {
       this.setState({
         error: true,
         showModal: true,
         errorMessage: `An error has been caught: ${error.response.status} ${error.response.statusText}`
       });
-      console.log(this.state.errorMessage);
+      // console.log(this.state.errorMessage);
     }
   }
   getMovies = async (city) => {
@@ -83,19 +83,19 @@ class App extends React.Component {
       this.setState({
         movieModal: true,
       })
-      console.log(movieData)
+      // console.log(movieData)
     } catch (error) {
       this.setState({
         error: true,
         showModal: true,
         errorMessage: `An error has been caught: ${error.response.status} ${error.response.statusText}`
       });
-      console.log(this.state.errorMessage);
+      // console.log(this.state.errorMessage);
     }
   }
     render() {
       let cityResults = this.state.cityData.map((city, index) => {
-        console.log(index)
+        // console.log(index)
         return (
           <Results
             key={index}
