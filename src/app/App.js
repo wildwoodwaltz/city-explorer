@@ -8,6 +8,7 @@ import axios from 'axios';
 import Errormodal from '../modals/Errormodal';
 import Weather from '../modals/Weather';
 import Movie from '../modals/Movie';
+import WeatherOne from '../modals/WeatherOne';
 
 
 class App extends React.Component {
@@ -21,6 +22,7 @@ class App extends React.Component {
       showModal: false,
       weatherData: ['sunny'],
       weatherModal: false,
+      weatherModalOne: false,
       movieData:[''],
       movieModal: false,
     };
@@ -30,6 +32,7 @@ class App extends React.Component {
       showModal: false,
       weatherModal: false,
       movieModal: false,
+      weatherModalOne: false,
     })
   }
   showModal = () => {
@@ -74,6 +77,30 @@ class App extends React.Component {
       // console.log(this.state.errorMessage);
     }
   }
+  getWeatherOne = async (city) => {
+    try {
+      let weatherCall = `${process.env.REACT_APP_SERVER}/weather?city=${city}`;
+      let weatherData = await axios.get(weatherCall)
+      this.setState({
+        weatherData: weatherData.data,
+      })
+      console.log(weatherData.data)
+      this.setState({
+        weatherModalOne: true,
+      })
+      // console.log(weatherData)
+    } catch (error) {
+      this.setState({
+        error: true,
+        showModal: true,
+        errorMessage: `An error has been caught: ${error.response.status} ${error.response.statusText}`
+      });
+      // console.log(this.state.errorMessage);
+    }
+  }
+    getInfo = () =>{
+    this.props.getWeather(this.props.city.display_name.split(',')[0])
+  }
   getMovies = async (city) => {
     try {
       let movieCall = `${process.env.REACT_APP_SERVER}/movies?city=${city}`;
@@ -103,6 +130,7 @@ class App extends React.Component {
             city={city}
             getWeather={this.getWeather}
             getMovies={this.getMovies}
+            getWeatherOne={this.getWeatherOne}
           />
         );
       }
@@ -127,6 +155,11 @@ class App extends React.Component {
             weatherModal={this.state.weatherModal}
             hideModal={this.hideModal}
             weatherData={this.state.weatherData}
+          />
+                    <WeatherOne
+            weatherModal={this.state.weatherModalOne}
+            hideModal={this.hideModal}
+            weatherResults={this.state.weatherData}
           />
           <Movie
             movieModal={this.state.movieModal}
