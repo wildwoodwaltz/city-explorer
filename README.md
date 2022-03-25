@@ -13,6 +13,9 @@ This product should allow a person to search for a city and then get a map of sa
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 ![WRRC](./public/assets/WRRC.png)
+![WRRC2](./public/assets/wrrc2.png)
+![WRRC3](./public/assets/image.png)
+![WRRC4](./public/assets/image.png)
 [https://locationiq.com/](Location IQ for API Key and population)
 [https://react-bootstrap.github.io/](Bootstrap for React)
 
@@ -27,7 +30,9 @@ WRRC Functions:
 
 ## Change Log
  
- V.1.0.0 - Search bar functionality and map population. Error handling. 
+ V.1.0.0 - Search bar functionality and map population. Error handling.
+ V.1.0.1 - Added Server Call functionality 
+ V.1.1.0 - Added API calls from server.
 
 ## Credit and Collaborations
 
