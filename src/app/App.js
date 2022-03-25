@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Cityform from './Cityform';
-import Results from './Results';
-import Header from './Header';
+import Cityform from '../cityform/Cityform';
+import Results from '../cityform/Results';
+import Header from '../Header';
 import axios from 'axios';
-import Errormodal from './Errormodal';
-import Weather from './Weather';
-import Movie from './Movie';
+import Errormodal from '../modals/Errormodal';
+import Weather from '../modals/Weather';
+import Movie from '../modals/Movie';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -124,12 +125,12 @@ class App extends React.Component {
           />
           <Weather
             weatherModal={this.state.weatherModal}
-            hideWeatherModal={this.hideModal}
+            hideModal={this.hideModal}
             weatherData={this.state.weatherData}
           />
           <Movie
             movieModal={this.state.movieModal}
-            hideMovieModal={this.hideModal}
+            hideModal={this.hideModal}
             movieData={this.state.movieData}  
           />
         </>
