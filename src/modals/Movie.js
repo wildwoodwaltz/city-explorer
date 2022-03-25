@@ -20,10 +20,10 @@ class Movie extends React.Component {
       <>
         <Modal
           show={this.props.movieModal}
-          onClick={this.props.hideMovieModal}
+          onClick={this.props.hideModal}
         >
           <Modal.Header closeButton></Modal.Header>
-          <Modal.Body onClick={this.props.hideMovieModal}>
+          <Modal.Body onClick={this.props.hideModal}>
             {movieResults}
           </Modal.Body>
         </Modal> 

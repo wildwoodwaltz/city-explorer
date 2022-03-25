@@ -31,8 +31,9 @@ WRRC Functions:
 ## Change Log
  
  V.1.0.0 - Search bar functionality and map population. Error handling.
- V.1.0.1 - Added Server Call functionality 
+ V.1.0.1 - Added Server Call functionality.
  V.1.1.0 - Added API calls from server.
+ V.1.1.1 - Refactored to make easier to read.
 
 ## Credit and Collaborations
 
