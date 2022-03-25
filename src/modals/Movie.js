@@ -6,8 +6,6 @@ class Movie extends React.Component {
 
   render() {
     let movieResults = this.props.movieData.map((movie, index) => {
-      console.log(index)
-      console.log(movie)
       return (
        <Moviedata
        key = {index}  
