@@ -16,6 +16,7 @@ This product should allow a person to search for a city and then get a map of sa
 ![WRRC2](./public/assets/wrrc2.png)
 ![WRRC3](./public/assets/image.png)
 ![WRRC4](./public/assets/image.png)
+![WRRC5](./public/assets/Capture.JPG)
 [https://locationiq.com/](Location IQ for API Key and population)
 [https://react-bootstrap.github.io/](Bootstrap for React)
 
